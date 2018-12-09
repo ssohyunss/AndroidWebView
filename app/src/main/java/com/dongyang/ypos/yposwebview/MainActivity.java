@@ -7,23 +7,14 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.webkit.JavascriptInterface;
-import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.Toast;
 
-import com.google.zxing.integration.android.IntentIntegrator;
-import com.google.zxing.integration.android.IntentResult;
-
-import org.json.JSONObject;
-
-import java.util.LinkedHashMap;
-import java.util.Map;
 
 public class MainActivity extends AppCompatActivity {
-
     WebView webView;
     public class WebAppInterface {
         Context mContext;
@@ -37,6 +28,12 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(mContext, ScanActivity.class);
             startActivityForResult(intent,1);
         }
+        @JavascriptInterface
+        public void makeBarcode() {
+            Intent intent = new Intent(mContext, AddActivity.class);
+            startActivityForResult(intent,1);
+        }
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        webView.loadUrl("http://10.0.2.2:8080/project/");
+        webView.loadUrl(Config.HOME_URL);
 /**
  webView.setWebViewClient(new WebViewClient() { // 새 창이 뜨는 것을 방지
 
@@ -109,8 +106,12 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(MainActivity.this, "결과가 성공이 아님.", Toast.LENGTH_SHORT).show();
             return;
         }else{
-            String value = data.getStringExtra("result");
-            webView.loadUrl("javascript:barcodeText('"+value+"');");
+            if("SCAN".equals(data.getStringExtra("param"))){
+                String value = data.getStringExtra("result");
+                webView.loadUrl("javascript:barcodeText('"+value+"');");
+            }else{
+                webView.loadUrl("javascript:menu('MANAGE');");
+            }
         }
 
     }

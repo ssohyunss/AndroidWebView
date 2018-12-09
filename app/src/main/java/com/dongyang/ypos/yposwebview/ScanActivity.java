@@ -1,11 +1,8 @@
 package com.dongyang.ypos.yposwebview;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.webkit.WebView;
-import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
@@ -26,6 +23,7 @@ public class ScanActivity extends AppCompatActivity {
         String barcode = value.getContents();
         Intent intent = new Intent();
         if(null != barcode){
+            intent.putExtra("param", "SCAN");
             intent.putExtra("result", barcode);
             setResult(RESULT_OK, intent);
         }else{

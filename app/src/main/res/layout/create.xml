@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="16dp"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="16dp"
+    android:background="#fff"
+    android:orientation="vertical">
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="사진등록"
+                    android:textColorHint="#000"
+                    android:textColor="#000"
+                    android:textCursorDrawable="@null"
+                    android:backgroundTint="#000"/>
+
+                <ImageView
+                    android:id="@+id/ivPhoto"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp"
+                    android:layout_centerInParent="true"/>
+            </RelativeLayout>
+
+
+            <EditText
+                android:layout_marginTop="10dp"
+                android:id="@+id/etTitle"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:textSize="16dp"
+                android:hint="상품명"
+                android:textColorHint="#000"
+                android:textColor="#000"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="#000"
+                android:padding="2dp"/>
+
+            <EditText
+                android:id="@+id/etContent"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:hint="상품가격(원)"
+                android:padding="2dp"
+                android:textColorHint="#000"
+                android:textColor="#000"
+                android:textCursorDrawable="@null"
+                android:backgroundTint="#000"
+                android:textSize="16dp" />
+            <EditText
+                android:id="@+id/etCount"
+                android:layout_width="match_parent"
+                android:layout_height="40dp"
+                android:layout_marginTop="10dp"
+                android:hint="상품수"
+                android:padding="2dp"
+                android:textColorHint="#000"
+                android:textColor="#000"
+                android:backgroundTint="#000"
+                android:textSize="16dp" />
+
+            <Button
+                android:id="@+id/btnSubmit"
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:text="등록"
+                />
+        </LinearLayout>
+    </ScrollView>
+</RelativeLayout>
