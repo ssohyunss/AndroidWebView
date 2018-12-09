@@ -111,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 webView.loadUrl("javascript:barcodeText('"+value+"');");
             }else{
                 webView.loadUrl("javascript:menu('MANAGE');");
+
             }
         }
 
